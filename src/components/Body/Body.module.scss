@@ -1,0 +1,17 @@
+.wrapper {
+
+}
+
+.playlist {
+    margin: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &__image {
+        img {
+            height: 180px;
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 25px 50px -12px;
+        }
+    }
+}
