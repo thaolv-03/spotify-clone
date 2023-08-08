@@ -1,15 +1,38 @@
 .wrapper {
     height: 100%;
     overflow: hidden;
+    background-color: #121212;
+    margin: 0 10px;
+    border-radius: 12px;
+
+    .playlist-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 20px 0 5px 20px;
+        transition: .3s ease-in-out;
+
+        &__icon {
+            width: 27px;
+            height: 27px;
+            fill: white;
+        }
+
+        &:hover {
+            color: white;
+        }
+    }
 
     ul {
         list-style-type: none;
         display: flex;
         flex-direction: column;
         gap: 16px;
-        margin: 0;
-        padding: 0 12px;
-        height: 56vh;
+        padding: 10px 20px;
+        height: 48vh;
         max-height: 100%;
         overflow: auto;
 
@@ -31,32 +54,32 @@
             &:hover {
                 color: white;
             }
-        }
-    }
 
-    .playlist-item {
-        display: flex;
-        align-items: center;
+            .playlist-item {
+                display: flex;
+                align-items: center;
 
-        img {
-            width: 60px;
-            height: 60px;
-            border-radius: 6px;
-        }
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 6px;
+                }
 
-        .item-details {
-            margin-left: 10px;
+                .item-details {
+                    margin-left: 10px;
 
-            &__name {
-                line-height: 1.7;
-                font-weight: 500;
-                color: white;
-                font-size: 16px;
-            }
+                    &__name {
+                        line-height: 1.7;
+                        font-weight: 500;
+                        color: white;
+                        font-size: 16px;
+                    }
 
-            &__owner {
-                line-height: 1.7;
-                font-size: 14px;
+                    &__owner {
+                        line-height: 1.7;
+                        font-size: 14px;
+                    }
+                }
             }
         }
     }
