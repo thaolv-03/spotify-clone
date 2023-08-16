@@ -4,11 +4,12 @@ import styles from "./Body.module.scss";
 import { useStateProvider } from "../../utils/StateProvider";
 import axios from "axios";
 import { AiFillClockCircle } from "react-icons/ai";
+import styled from 'styled-components'
 import { reducerCases } from "../../utils/Constants";
 
 const cx = classNames.bind(styles);
 
-export default function Body() {
+export default function Body({ headerBackground }) {
   const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] =
     useStateProvider();
   useEffect(() => {
@@ -46,8 +47,15 @@ export default function Body() {
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
 
+  const msToMinutesAndSeconds = (ms) => {
+    const minutues = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+
+    return minutues + ":" + (seconds < 10 ? "0" : "") + seconds
+  }
+
   return (
-    <div className={cx("wrapper")}>
+    <Container className={cx("wrapper")}>
       {selectedPlaylist && (
         <>
           <div className={cx("playlist")}>
@@ -63,7 +71,7 @@ export default function Body() {
             </div>
           </div>
           <div className={cx("list")}>
-            <div className={cx("header_row")}>
+            <div className={cx("header__row")}>
               <div className={cx("col")}>
                 <span>#</span>
               </div>
@@ -100,20 +108,20 @@ export default function Body() {
                     <div className={cx("col")}>
                       <span>{index + 1}</span>
                     </div>
-                    <div className={cx("col")}>
+                    <div className={cx("col", "detail")}>
                       <div className={cx("image")}>
                         <img src={image} alt="track" />
                       </div>
                       <div className={cx("info")}>
                         <span className={cx("name")}>{name}</span>
-                        <span>{artists}</span>
+                        <span className={cx("artists")}>{artists}</span>
                       </div>
                     </div>
                     <div className={cx("col")}>
                       <span>{album}</span>
                     </div>
                     <div className={cx("col")}>
-                      <span>{duration}</span>
+                      <span>{msToMinutesAndSeconds(duration)}</span>
                     </div>
                   </div>
                 );
@@ -122,6 +130,15 @@ export default function Body() {
           </div>
         </>
       )}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  .list {
+    .header__row {
+      background-color: ${({ headerBackground }) =>
+    headerBackground ? "#000000dc" : "none"};
+    }
+  }
+`
