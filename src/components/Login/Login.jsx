@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 export default function Login() {
   const handleClick = () => {
     const clientId = "298829a2eb3b40818aaa2b050678fb60";
+    // const clientId = "d536bb9a79a942cab2ec0a63413d64eb";
     const redirectUrl = "http://localhost:3000/";
     const apiUrl = "https://accounts.spotify.com/authorize";
     const scope = [

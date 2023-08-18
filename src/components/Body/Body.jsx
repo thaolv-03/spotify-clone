@@ -42,7 +42,7 @@ export default function Body({ headerBackground }) {
         })),
       };
       dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
-      console.log(response);
+      // console.log(response);
     };
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);

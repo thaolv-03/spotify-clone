@@ -1,0 +1,25 @@
+.wrapper {}
+
+.track {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 12px;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+
+        h4 {
+            color: white;
+            margin: 0;
+        }
+
+        h5 {
+            color: #b3b3b3;
+            margin: 0;
+        }
+    }
+}
